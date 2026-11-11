@@ -1,0 +1,34 @@
+# Python bytecode & caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Local employee database tables (Paradox/SQLite credentials & PII)
+tables/
+*.DB
+*.db
+*.PX
+*.MB
+*.TV
+*.VAL
+*.XG*
+*.YG*
+
+# Local runtime configs & exports
+/simulator_config.json
+/users.json
+/sim_result_*.csv
+/sim_summary_*.json
+/users_export.csv
+
+# IDE & OS metadata
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
