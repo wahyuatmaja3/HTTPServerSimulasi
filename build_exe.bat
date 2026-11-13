@@ -12,13 +12,8 @@ if errorlevel 1 (
     exit /b 1
 )
 
-echo Menjalankan PyInstaller...
-pyinstaller --name SGAbsensiSimulator ^
-    --onefile ^
-    --windowed ^
-    --clean ^
-    --noconfirm ^
-    main.py
+echo Menjalankan PyInstaller dengan spec file (termasuk DLL kompatibilitas Windows 7/Server 2008)...
+pyinstaller --clean --noconfirm SGAbsensiSimulator.spec
 
 if errorlevel 1 (
     echo.
@@ -26,6 +21,8 @@ if errorlevel 1 (
     pause
     exit /b 1
 )
+
+copy /y "compat\x64\api-ms-win-core-path-l1-1-0.dll" "dist\" >nul
 
 echo.
 echo ========================================================

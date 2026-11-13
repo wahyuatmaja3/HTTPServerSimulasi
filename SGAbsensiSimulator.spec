@@ -4,7 +4,7 @@
 a = Analysis(
     ['main.py'],
     pathex=[],
-    binaries=[],
+    binaries=[('compat/x64/api-ms-win-core-path-l1-1-0.dll', '.')],
     datas=[],
     hiddenimports=[],
     hookspath=[],
