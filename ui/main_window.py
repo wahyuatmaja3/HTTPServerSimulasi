@@ -2,6 +2,7 @@ import asyncio
 import csv
 import json
 import os
+import sys
 from collections import deque
 from datetime import datetime
 from typing import Any, Deque, Dict, List, Optional, Tuple
@@ -46,7 +47,10 @@ from core.simulator import BulkAttendanceSimulator, test_server_connection
 from ui.dialogs import BulkPasteUsersDialog, FetchServerKeyDialog, ServerRecommendationDialog
 
 
-APP_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if getattr(sys, "frozen", False):
+    APP_ROOT = os.path.dirname(os.path.abspath(sys.executable))
+else:
+    APP_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_FILE = os.path.join(APP_ROOT, "simulator_config.json")
 USERS_FILE = os.path.join(APP_ROOT, "users.json")
 TABLES_DIR = os.path.join(APP_ROOT, "tables")

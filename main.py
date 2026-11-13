@@ -2,7 +2,10 @@ import os
 import sys
 
 # Ensure project root is importable regardless of working directory
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+if getattr(sys, "frozen", False):
+    PROJECT_DIR = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(sys.executable)))
+else:
+    PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 if PROJECT_DIR not in sys.path:
     sys.path.insert(0, PROJECT_DIR)
 
